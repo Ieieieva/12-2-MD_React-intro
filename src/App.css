@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Handlee&family=Raleway:wght@100;400&display=swap');
+
+:root {
+  --c-background: #242424;
+  --c-main-accent: #5fa08b;
+  --C-secondary-accent: #234439;
+  --c-content: #b3b6b1;
+  background-color: var(--c-background);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--C-secondary-accent);
+  color: var(--c-content);
+  cursor: pointer;
+  transition: border-color 0.25s;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.button:hover {
+  border-color: var(--c-main-accent);
+}
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+li {
+  list-style: none;
+}
+
+.app__heading {
+  font-family: 'Handlee', cursive;
+  font-size: 3rem;
+  color: var(--c-main-accent);
+  text-shadow:  0px 14px 10px rgba(0,0,0,0.15),
+                0px 24px 2px rgba(0,0,0,0.1),
+                0px 34px 30px rgba(0,0,0,0.1);
+}
+@media only screen and (max-width: 400px){
+  .app__heading {
+    font-size: 2rem;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.main__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.main__input--label {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  color: var(--c-content);
+  font-size: 1.5rem;
+  font-family: 'Raleway', sans-serif;
+}
+@media only screen and (max-width: 400px){
+  .main__input--label {
+    font-size: 1rem;
+  }
+}
+
+.main__input {
+  padding: 10px;
+  margin-top: 10px;
+  
+}
+.main__input::placeholder {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 1rem;
+}
+
+.btn-delete {
+  font-size: 0.9rem;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+@media only screen and (max-width: 400px){
+  .todo-list {
+    gap: 30px;
+  }
+}
+
+.list-tems {
+  color: var(--c-content);
+  font-family: 'Gochi Hand', cursive;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+@media only screen and (max-width: 400px){
+  .list-tems {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+/* ----------STYLED CHECKOBOX------------- */
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox__input {
+  display: none;
+}
+
+.checkbox__box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--c-content);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+  transition: background-color 0.2s, border 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.checkbox__box::after {
+  content: '\2714';
+  color: white;
+  transform: scale(0);
+  transition: transform 0.15s;
+}
+
+.checkbox__input:checked + .checkbox__box {
+  background-color: var(--c-main-accent);
+  border: var(--c-main-accent);
+}
+
+.checkbox__input:checked + .checkbox__box::after {
+  transform: scale(1);
+}
+
+.checkbox__input:checked + .list-tems {
+  text-decoration: line-through;
+}
